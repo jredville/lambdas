@@ -1,29 +1,35 @@
 module Lambdas
   extend self
-  def l_true
-    l_value(true)
+  def true
+    value(true)
   end
 
-  def l_false
-    l_value(false)
+  def false
+    value(false)
   end
 
-  def l_nil
-    l_value(nil)
+  def nil
+    value(nil)
   end
 
-  def l_value(val)
+  def noop
+    lambda {|*args| }
+  end
+
+  def value(val)
     lambda { val }
   end
 
-  def l_identity
+  def identity
     lambda {|a| a}
   end
+  alias_method :i, :identity
 
-  def l_y
+  def y
     lambda { |f| f.call(f) }.call(
       lambda do |g|
         yield(lambda { |*n| g.call(g).call(*n) })
       end)
   end
 end
+L = Lambdas

@@ -18,7 +18,12 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here (coming soon)
+TODO: Write usage instructions here (coming soon....)
+
+```(ruby)
+L.value('a').call #=> 'a'
+L.i.call(123) #=> 123
+````
 
 ## Contributing
 
